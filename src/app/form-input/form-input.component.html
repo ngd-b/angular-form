@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-md-12">
+		<h4>点击事件</h4>
+	<button type="button" class="btn btn-default" (click)="button1()">click</button>
+	<p>{{button1Message}}</p>
+	<hr>
+	</div>
+	<div class="col-md-12">
+		<h4>事件对象传递event对象$event</h4>
+		<input type="text" (keyup)="onkey($event)">
+		<p>event.target:{{values}}</p>
+		<p>event.key:{{values2}}</p>
+		<hr>
+	</div>
+	<div class="col-md-12">
+		<h4>模板引用变量#box</h4>
+		<input type="text" #box (keyup)="onkeyTwo(box.value)">
+		<p>引用变量在视图中直接显示：{{box.value}}</p>
+		<p>引用变量，用户输入获取后显示：{{valuesTwo}}</p>
+		<hr>
+	</div>
+	<div class="col-md-12">
+		<h4>事件类型，焦点/回车</h4>
+		<input type="text" #boxTwo (keyup.enter) ="onEnter(boxTwo.value)" (blur)='onBlur(boxTwo.value)'>
+		<p>点击回车显示数据：{{valuesEnter}}</p>
+		<p>失去焦点后获取输入数据：{{valuesBlur}}</p>
+	</div>
+	
+</div>
