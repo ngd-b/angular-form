@@ -17,8 +17,15 @@
 </accordion-group>
 <accordion-group heading="响应式表单">
 	<div class="col-md-12">
+	<tabset>
+		<tab heading="基础操作">
+			<app-form-reactive [isShow]="isShow"></app-form-reactive>
+		</tab>
+		<tab heading="复杂操作">
+			<app-form-reactive [isShow]="!isShow"></app-form-reactive>
+		</tab>
+	</tabset>
 		
-		<app-form-reactive></app-form-reactive>
 	</div>
 </accordion-group>
 <accordion-group heading="动态表单">

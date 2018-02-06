@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 
-import {AccordionModule} from 'ngx-bootstrap';
+import {AccordionModule,TabsModule} from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { FormInputComponent } from './form-input/form-input.component';
@@ -23,7 +23,8 @@ import { FormActiveComponent } from './form-active/form-active.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

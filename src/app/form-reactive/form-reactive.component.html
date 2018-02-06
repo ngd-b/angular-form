@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12" [hidden]="bool">
 		<form class="form-horizontal" role="form" [formGroup]="cityForm" novalidate>
 			<div class="form-group">
 				<label class="control-label col-md-2" for="cityId">cityID</label>
@@ -41,9 +41,106 @@
 					</div>
 				</div>
 			</div>
+			<div formArrayName="specialCondition" class="">
+				<div *ngFor="let condition of specialCondition.control;let i=index" [formGroupName]="i">
+					<h4>Condition #{{i+1}}</h4>
+					<div class="form-group">
+						<label for="unimpeded" class="control-label col-md-2">unimpeded</label>
+						<div class="col-md-4">
+							<input type="text" formControlName="unimpeded" class="form-control" id="unimpeded">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="amble" class="control-label col-md-2">amble</label>
+						<div class="col-md-4">
+							<input type="text" formControlName="amble" class="form-control" id="amble">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="congestion" class="control-label col-md-2">congestion</label>
+						<div class="col-md-4">
+							<input type="text" formControlName="congestion" class="form-control" id="congestion">
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" (click)="addSpecialCondition()">添加</button>
 		</form>
 		<p>Form value:{{cityForm.value|json}}</p>
 		<p>Form value:{{cityForm.get('condition.amble').value|json}}</p>
 		<p>Form status:{{cityForm.status |json}}</p>
 	</div>
+	<div class="col-md-12" [hidden]="!isShow">
+		<form class="form-horizontal" role="form" [formGroup]="cityForm" novalidate>
+			<div class="form-group">
+				<label class="control-label col-md-2" for="cityId">cityID</label>
+				<div class="col-md-4">
+					<input type="text" id="cityId" class="form-control" formControlName="cityId">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="raodId" class="control-label col-md-2">roadID</label>
+				<div class="col-md-4">
+					<input type="text" id="roadId" class="form-control" formControlName='roadId'>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="province" class="control-label col-md-2">province</label>
+				<div class="col-md-4">
+					<select class="form-control" formControlName="province" id="province">
+						<option *ngFor="let province of province" [value]="province">{{province}}</option>
+					</select>
+				</div>
+			</div>
+			<div formGroupName="condition">
+				<div class="form-group">
+					<label for="unimpeded" class="control-label col-md-2">unimpeded</label>
+					<div class="col-md-4">
+						<input type="text" formControlName="unimpeded" class="form-control" id="unimpeded">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="amble" class="control-label col-md-2">amble</label>
+					<div class="col-md-4">
+						<input type="text" formControlName="amble" class="form-control" id="amble">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="congestion" class="control-label col-md-2">congestion</label>
+					<div class="col-md-4">
+						<input type="text" formControlName="congestion" class="form-control" id="congestion">
+					</div>
+				</div>
+			</div>
+			<div formArrayName="specialCondition" class="">
+				<div *ngFor="let condition of specialCondition.control;let i=index" [formGroupName]="i">
+					<h4>Condition #{{i+1}}</h4>
+					<div class="form-group">
+						<label for="unimpeded" class="control-label col-md-2">unimpeded</label>
+						<div class="col-md-4">
+							<input type="text" formControlName="unimpeded" class="form-control" id="unimpeded">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="amble" class="control-label col-md-2">amble</label>
+						<div class="col-md-4">
+							<input type="text" formControlName="amble" class="form-control" id="amble">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="congestion" class="control-label col-md-2">congestion</label>
+						<div class="col-md-4">
+							<input type="text" formControlName="congestion" class="form-control" id="congestion">
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" (click)="addSpecialCondition()">添加</button>
+		</form>
+		<p>Form value:{{cityForm.value|json}}</p>
+		<p>Form value:{{cityForm.get('condition.amble').value|json}}</p>
+		<p>Form status:{{cityForm.status |json}}</p>
+	</div>
+		
 </div>
+
